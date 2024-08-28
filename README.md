@@ -11,3 +11,7 @@ Card matching game where users have to match cards into pairs.
 3. Users can turn over 2 cards at a time.
 
 4. The user continues this methodology until all the cards are solved.
+
+**PlAY NOW**
+---------------------------------------------------
+https://card-match-game-omega.vercel.app
