@@ -1,42 +1,82 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@font-face {
+  font-family: "Jersey10";
+  src: url("./fonts/Jersey10-Regular.ttf") format("truetype");
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+body {
+  color: #00ff00;
+  font-family: Jersey10;
+  background: url(pattern.jpg);
+  background-size: cover;
+  filter: pixelate(10px);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111111;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0.9;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 10px;
+  padding: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
 .card {
-  padding: 2em;
+  padding: 10px;
+  font-size: 4rem;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  width: 64px;
+  height: 96px;
+  cursor: pointer;
+  background-color: #401d5e;
+}
+.card.faceup {
+  animation: flipInY;
+  animation-duration: 1s;
+}
+.card.facedown:hover {
+  border-color: #fff;
 }
 
-.read-the-docs {
-  color: #888;
+.board:not(.disabled) .symbol:hover {
+  border-color: #00ff00;
+}
+.button {
+  border-radius: 50px;
+  background-color: #00ff00;
+  color: #111;
+  margin-top: 10px;
+  border-color: #06d606;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 20px;
+}
+.card.matched {
+  animation: tada;
+  animation-duration: 1s;
+}
+.countdown-wrapper {
+  position: relative;
+  margin-top: -14px;
+}
+.countdown-wrapper .timer {
+  font-size: 3rem;
+  position: absolute;
+  color: #fff;
+  top: 14px;
+  left: 40px;
 }
