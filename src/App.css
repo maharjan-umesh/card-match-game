@@ -82,6 +82,9 @@ h1 {
 }
 
 @media (max-width: 480px) {
+  .wrapper {
+    justify-content: flex-start;
+  }
   .board {
     gap: 16px;
   }
