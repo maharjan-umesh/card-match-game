@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Jersey10";
-  src: url("./fonts/Jersey10-Regular.ttf") format("truetype");
+  src: url("/fonts/Jersey10-Regular.ttf") format("truetype");
 }
 body {
   color: #00ff00;
   font-family: Jersey10;
-  background: url(pattern.jpg);
+  background: url(/pattern.jpg);
   background-size: cover;
   filter: pixelate(10px);
 }
