@@ -90,11 +90,11 @@ h3 {
   margin-top: -14px;
 }
 .countdown-wrapper .timer {
-  font-size: 3rem;
+  font-size: 2.5rem;
   position: absolute;
   color: #fff;
   top: 14px;
-  left: 42px;
+  left: 36px;
 }
 .well-done {
   animation: zoomInDown 1s, pulse infinite 1s;
@@ -108,7 +108,8 @@ h3 {
 @media (max-width: 480px) {
   .wrapper {
     justify-content: flex-start;
-    padding: 20px 0px 10px 0px;
+    padding: 10px 0px;
+    gap: 10px;
   }
   h1 {
     font-size: 4rem !important;

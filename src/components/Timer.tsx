@@ -24,6 +24,6 @@ export default function Timer({ isNewGame }: TimerProps) {
   }, [isNewGame]);
 
   return isNewGame && seconds > 0 ? (
-    <Countdown size={100} timeRemaining={seconds} />
+    <Countdown size={90} timeRemaining={seconds} />
   ) : null;
 }
