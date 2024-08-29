@@ -1,1 +1,1 @@
-export const TIMER = 5;
+export const COUNTDOWN_SECONDS = 3;

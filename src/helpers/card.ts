@@ -1,18 +1,7 @@
-export const symbols = [
-  "🍇",
-  "🍓",
-  "🍉",
-  "🍊",
-  "🍋",
-  "🍌",
-  "🍍",
-  "🥭",
-  "🍎",
-  "🍏",
-];
+const cards = ["🍇", "🍓", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎", "🍏"];
 
 export const shuffleCards = () => {
-  return [...symbols, ...symbols]
+  return [...cards, ...cards]
     .sort(() => Math.random() - 0.5)
-    .map((symbol) => ({ "value": symbol, "status": "faceup" }));
+    .map((symbol) => ({ "value": symbol, "status": "facedown" }));
 };

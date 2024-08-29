@@ -1,35 +1,28 @@
-import { useEffect, useState } from "react";
-
 import useCards from "../hooks/useCards";
 import Card from "./Card";
-import Countdown from "./Countdown";
-import { TIMER } from "../constants/timer";
+import Timer from "./Timer";
 
 export default function Board() {
-  const { cards, handleOnClick } = useCards();
-  const [seconds, setSeconds] = useState(TIMER);
-
-  useEffect(() => {
-    const i = setInterval(() => {
-      setSeconds((s) => {
-        if (s > 0) return s - 1;
-        clearInterval(i);
-        return 0;
-      });
-    }, 1000);
-
-    return () => {
-      clearInterval(i);
-    };
-  }, []);
+  const {
+    cards,
+    handleOnClick,
+    disableClick,
+    startGame,
+    gameStatus
+  } = useCards();
+  const { isNewGame, isCompleted, notMatched, isPlaying } = gameStatus;
 
   return (
     <div className="wrapper">
-      <h1>Card Match Game</h1>
+      <h1>MEMORY GAME</h1>
 
-      {seconds > 0 && <Countdown size={100} timeRemaining={seconds} />}
+      {isNewGame && <Timer isNewGame={isNewGame} />}
 
-      <div className={`board`}>
+      {isCompleted && <h2 className="well-done">WELL DONE 👍</h2>}
+
+      {isPlaying && <h3>Wrong Guesses : {notMatched}</h3>}
+
+      <div className={`board ${disableClick.current === true ? "disabled" : ""}`}>
         {cards.map((card, index) => (
           <Card
             key={index}
@@ -39,9 +32,12 @@ export default function Board() {
           />
         ))}
       </div>
-      <button className="button" onClick={() => window.location.reload()}>
-        Restart 🟢
-      </button>
+      <div>
+        <button className="button" onClick={startGame}>
+          START GAME 🟢
+        </button>
+        <p className={`${!isPlaying ? "play-game" : ""}`}>(Click start to play game)</p>
+      </div>
     </div>
   );
 }

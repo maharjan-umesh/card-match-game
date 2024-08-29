@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { TIMER } from "../constants/timer";
+import { COUNTDOWN_SECONDS } from "../constants/timer";
 
 interface CountdownProps {
   size: number;
@@ -15,7 +15,7 @@ export default function Countdown({
   const radius = useMemo(() => (size - ring) / 2, [size, ring]);
   const circumference = useMemo(() => 2 * Math.PI * radius, [radius]);
   const offset = useMemo(
-    () => (timeRemaining / TIMER) * circumference,
+    () => (timeRemaining / COUNTDOWN_SECONDS) * circumference,
     [timeRemaining, circumference]
   );
 
