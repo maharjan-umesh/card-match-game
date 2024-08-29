@@ -14,4 +14,4 @@ Card matching game where users have to match cards into pairs.
 
 **PlAY NOW**
 ---------------------------------------------------
-https://card-match-game-omega.vercel.app
+https://memory--game-omega.vercel.app
