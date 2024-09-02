@@ -105,6 +105,20 @@ h3 {
   animation: pulse infinite 1s;
   font-size: 1.2rem;
 }
+.footer {
+  position: relative;
+}
+.mute {
+  background: none;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 54px;
+  right: -90px;
+}
+.mute:focus {
+  border: none;
+  outline: none;
+}
 @media (max-width: 480px) {
   .wrapper {
     justify-content: flex-start;

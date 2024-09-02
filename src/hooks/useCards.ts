@@ -17,6 +17,7 @@ export default function useCards() {
   const timeoutsRef = useRef<number[]>([]);
 
   //Audio
+  const [isMuted, setIsMuted] = useState(false);
   const countDownAudioRef = useRef<HTMLAudioElement | null>(null);
   const clickAudioRef = useRef<HTMLAudioElement | null>(null);
   const matchedAudioRef = useRef<HTMLAudioElement | null>(null);
@@ -62,6 +63,17 @@ export default function useCards() {
       clearAllTimeouts();
     };
   }, []);
+
+  const muteAudio = () => {
+    console.log("== muted before", isMuted);
+    setIsMuted((prevIsMuted) => {
+      if (countDownAudioRef.current)countDownAudioRef.current.muted = !prevIsMuted;
+      if (clickAudioRef.current) clickAudioRef.current.muted = !prevIsMuted;
+      if (matchedAudioRef.current) matchedAudioRef.current.muted = !prevIsMuted;
+      if (notMatchedAudioRef.current) notMatchedAudioRef.current.muted = !prevIsMuted;
+      return !prevIsMuted;
+    });
+  };
 
   const startGame = () => {
     //disableClick while it's getting ready
@@ -155,7 +167,9 @@ export default function useCards() {
     cards,
     handleOnClick,
     disableClick,
+    isMuted,
     startGame,
-    gameStatus
+    gameStatus,
+    muteAudio,
   };
 }

@@ -8,7 +8,9 @@ export default function Board() {
     handleOnClick,
     disableClick,
     startGame,
-    gameStatus
+    gameStatus,
+    muteAudio,
+    isMuted,
   } = useCards();
   const { isNewGame, isCompleted, notMatched, isPlaying } = gameStatus;
 
@@ -22,7 +24,9 @@ export default function Board() {
 
       {isPlaying && <h3>Wrong Guesses : {notMatched}</h3>}
 
-      <div className={`board ${disableClick.current === true ? "disabled" : ""}`}>
+      <div
+        className={`board ${disableClick.current === true ? "disabled" : ""}`}
+      >
         {cards.map((card, index) => (
           <Card
             key={index}
@@ -32,11 +36,16 @@ export default function Board() {
           />
         ))}
       </div>
-      <div>
+      <div className="footer">
         <button className="button" onClick={startGame}>
           START GAME 🟢
         </button>
-        <p className={`${!isPlaying ? "play-game" : ""}`}>(Click start to play game)</p>
+        <p className={`${!isPlaying ? "play-game" : ""}`}>
+          (Click start to play game)
+        </p>
+        <button className="mute" onClick={muteAudio}>
+          {isMuted ? "🔇" : "🔈"}
+        </button>
       </div>
     </div>
   );
